@@ -12,3 +12,12 @@ body{
 .navbar-brand {
 font-size: 14px;
 }
+
+
+.nav-link{
+  color: black;
+}
+
+.tipolink {
+margin: auto;
+}
