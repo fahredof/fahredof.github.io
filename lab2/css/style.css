@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&subset=cyrillic');
+
 body{
-	text-align: center;
-	background-image: url(../img/8-bit.jpg);
+	font-family: 'Press Start 2P', cursive;
+	background-image: url(../img/spaceship.jpg);
+}
+
+.navbar-brand img{
+  width: 75px;
+}
+
+.navbar-brand {
+font-size: 14px;
 }
