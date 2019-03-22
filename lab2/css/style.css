@@ -32,9 +32,87 @@ margin: auto;
 
 .wall{
   background-image: url(../img/new_wall.jpg);
+	background-size: 100%;
   margin-top: 3%;
   margin-left: 3%;
   width: 52.5%;
   height: 563px;
-  text-align: center;
+}
+
+.wall p{
+	font-size: 20pt;
+	text-align: center;
+	margin-top: 4%;
+}
+
+@media (max-width: 1540px){
+	.wall p{
+		font-size: 18pt;
+	}
+}
+
+@media (max-width: 1314px){
+	.wall p{
+		font-size: 17pt;
+	}
+}
+
+@media (max-width: 1114px){
+
+	.wall p{
+		font-size: 16pt;
+		margin-top: 2%;
+	}
+}
+
+@media (max-width: 961px){
+
+	.wall p{
+		font-size: 14pt;
+		margin-top: 1%;
+	}
+}
+
+@media (max-width: 787px){
+
+	.wall p{
+		font-size: 12pt;
+		margin-top: 1%;
+	}
+}
+
+@media (max-width: 671px){
+
+	.wall p{
+		font-size: 11pt;
+		margin-top: 3%;
+	}
+}
+
+@media (max-width: 671px){
+
+	.wall p{
+		font-size: 11pt;
+		margin-top: 3%;
+}
+
+@media (max-width: 453px){
+
+	.wall p{
+		font-size: 9pt;
+		margin-top: 10%;
+}
+
+@media (max-width: 359px){
+
+	.wall p{
+		font-size: 8pt;
+		margin-top: 20%;
+}
+
+@media (max-width: 289px){
+
+	.wall p{
+		font-size: 6pt;
+		margin-top: 30%;
 }
