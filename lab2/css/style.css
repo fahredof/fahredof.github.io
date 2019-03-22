@@ -29,13 +29,14 @@ margin: auto;
   font-size: 25pt;
   font-weight: bold;
 }
+.row{
+	margin-left: 2%;
+	margin-right: 2%;
+}
 
 .wall{
   background-image: url(../img/new_wall.jpg);
 	background-size: 100%;
-  margin-top: 3%;
-  margin-left: 3%;
-  width: 52.5%;
   height: 563px;
 }
 
@@ -43,6 +44,17 @@ margin: auto;
 	font-size: 20pt;
 	text-align: center;
 	margin-top: 4%;
+}
+
+.otst{
+	background: rgba(0, 0, 0, 0);
+	height: 1% !important;
+}
+
+.request{
+	text-align: center;
+	font-size: 15pt;
+	
 }
 
 @media (max-width: 1540px){
