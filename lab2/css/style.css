@@ -94,6 +94,7 @@ margin: auto;
 	.wall p{
 		font-size: 11pt;
 		margin-top: 3%;
+	}
 }
 
 @media (max-width: 453px){
@@ -101,13 +102,14 @@ margin: auto;
 	.wall p{
 		font-size: 9pt;
 		margin-top: 10%;
+	}
 }
-
 @media (max-width: 359px){
 
 	.wall p{
 		font-size: 8pt;
 		margin-top: 20%;
+	}
 }
 
 @media (max-width: 289px){
@@ -115,4 +117,12 @@ margin: auto;
 	.wall p{
 		font-size: 6pt;
 		margin-top: 30%;
+	}
+}
+
+@media (max-width: 535px){
+
+	.zazivala {
+		font-size: 12pt;
+	}
 }
