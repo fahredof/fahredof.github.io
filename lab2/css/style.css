@@ -21,3 +21,20 @@ font-size: 14px;
 .tipolink {
 margin: auto;
 }
+
+.zazivala{
+  margin-top: 3%;
+  text-align: center;
+  color: white;
+  font-size: 25pt;
+  font-weight: bold;
+}
+
+.wall{
+  background-image: url(../img/new_wall.jpg);
+  margin-top: 3%;
+  margin-left: 3%;
+  width: 52.5%;
+  height: 563px;
+  text-align: center;
+}
