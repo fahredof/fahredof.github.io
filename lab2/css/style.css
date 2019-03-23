@@ -9,17 +9,13 @@ body{
   width: 75px;
 }
 
-.navbar-brand {
-font-size: 14px;
+.navbar-brand{
+	font-size: 14px;
 }
-
 
 .nav-link{
   color: black;
-}
-
-.tipolink {
-margin: auto;
+	margin: auto;
 }
 
 .zazivala{
@@ -29,6 +25,7 @@ margin: auto;
   font-size: 25pt;
   font-weight: bold;
 }
+
 .row{
 	margin-left: 2%;
 	margin-right: 2%;
@@ -37,104 +34,71 @@ margin: auto;
 .wall{
   background-image: url(../img/new_wall.jpg);
 	background-size: 100%;
-  height: 563px;
+  height: 547px;
 }
 
 .wall p{
-	font-size: 20pt;
+	margin-top: 2%;
+	font-size: 13pt;
 	text-align: center;
-	margin-top: 4%;
 }
 
 .otst{
 	background: rgba(0, 0, 0, 0);
-	height: 1% !important;
+}
+
+.invite{
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .request{
 	text-align: center;
 	font-size: 15pt;
-	
+	color: white;
 }
 
-@media (max-width: 1540px){
+.txar{
+	height: 235px !important;
+}
+
+@media (min-width: 992px) and (max-width: 1497px){
 	.wall p{
-		font-size: 18pt;
+		margin-top: 6%;
+		font-size: 10pt;
 	}
 }
 
-@media (max-width: 1314px){
+@media (min-width: 487px) and (max-width: 764px){
 	.wall p{
-		font-size: 17pt;
-	}
-}
-
-@media (max-width: 1114px){
-
-	.wall p{
-		font-size: 16pt;
 		margin-top: 2%;
+		font-size: 14px;
 	}
 }
 
-@media (max-width: 961px){
-
+@media (min-width: 400px) and (max-width: 486px){
 	.wall p{
-		font-size: 14pt;
-		margin-top: 1%;
+		margin-top: 4%;
+		font-size: 12px;
 	}
 }
 
-@media (max-width: 787px){
-
+@media (min-width: 293px) and (max-width: 400px){
 	.wall p{
-		font-size: 12pt;
-		margin-top: 1%;
-	}
-}
-
-@media (max-width: 671px){
-
-	.wall p{
-		font-size: 11pt;
-		margin-top: 3%;
-	}
-}
-
-@media (max-width: 671px){
-
-	.wall p{
-		font-size: 11pt;
-		margin-top: 3%;
-	}
-}
-
-@media (max-width: 453px){
-
-	.wall p{
-		font-size: 9pt;
 		margin-top: 10%;
-	}
-}
-@media (max-width: 359px){
-
-	.wall p{
-		font-size: 8pt;
-		margin-top: 20%;
+		font-size: 10px;
 	}
 }
 
-@media (max-width: 289px){
-
+@media (max-width: 292px){
 	.wall p{
-		font-size: 6pt;
 		margin-top: 30%;
+		font-size: 8px;
 	}
 }
 
 @media (max-width: 535px){
 
 	.zazivala {
-		font-size: 12pt;
+		font-size: 16pt;
 	}
 }
