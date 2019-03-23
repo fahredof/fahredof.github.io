@@ -26,6 +26,13 @@ body{
   font-weight: bold;
 }
 
+.contacts{
+	margin-top: 1%;
+  text-align: center;
+  color: white;
+  font-size: 13pt;
+}
+
 .row{
 	margin-left: 2%;
 	margin-right: 2%;
