@@ -1,5 +1,7 @@
+
 arrphotos = new Array();
-var index = 0;
+var index = 0, indexph = 0, n = 4;
+var portret_image = new Image();
 
 for (var i = 0; i < 4; i++) {
   arrphotos[i] = new Image();
@@ -20,30 +22,55 @@ $.ajax({
 	})
 
 
-function getphotos(key){
+function getphotos(orientation, countphotos){
   $.ajax({
         url: "https://api.unsplash.com/photos/random",
+
         data: {
-        	client_id: '18f07c2c511e7d347e6bc3995eba8ebf75fcbe9b79687038017b14bf83ac5d7f'
+        	client_id: '5e8819eb418bb5b7d26aeca3da5f2bc072acc8da78883d46e14c1a0e05dd138f',
+          count: countphotos,
+          orientation: orientation,
+          collections: 1160922
         }
       })
         .done(function(data) {
-        document.getElementById('img').innerHTML+= '<img src="' + data.urls.small + '" />';
-        arrphotos[index].src = data.urls.small;
-        index++;
-  	})
-}
+          if (orientation == 'landscape'){
+              while (n != 0){
+                arrphotos[index].src = data[indexph].urls.regular;
+                index++;
+                indexph++;
+                n--;
+              }
+            }
+          else{
+              portret_image.src = data[0].urls.regular;
+          }
+        })
+      }
 
 $(function(){
   var canvas=document.getElementById("c1")
-  var image1=canvas.getContext("2d");
+  var ctx=canvas.getContext("2d");
 
-  getphotos();
+  getphotos('landscape', 2);
 
   arrphotos[0].onload = function() {
-    image1.drawImage(arrphotos[0], 0, 0, 300, 200);
+    ctx.drawImage(arrphotos[0], 0, 0, 400, 300);
+  }
+
+  arrphotos[1].onload = function() {
+    ctx.drawImage(arrphotos[1], 0, 300, 400, 300);
+  }
+
+  getphotos('portrait', 1);
+
+  portret_image.onload = function() {
+    ctx.drawImage(portret_image, 400, 0, 400, 600);
   }
 });
+
+
+
 /*
 function drawtx(){
   var canvas=document.getElementById("c1")
