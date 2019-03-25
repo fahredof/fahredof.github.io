@@ -1,6 +1,6 @@
 
 arrphotos = new Array();
-var index = 0, indexph = 0, n = 4;
+var index = 0, indexph = 0, n = 2, count = 0;;
 var portret_image = new Image();
 
 for (var i = 0; i < 4; i++) {
@@ -27,7 +27,7 @@ function getphotos(orientation, countphotos){
         url: "https://api.unsplash.com/photos/random",
 
         data: {
-        	client_id: '5e8819eb418bb5b7d26aeca3da5f2bc072acc8da78883d46e14c1a0e05dd138f',
+        	client_id: '831034bdce6f96b6b8dc797a18f37fca53d793f7e494e4c28076a249f87b3deb',
           count: countphotos,
           orientation: orientation,
           collections: 1160922
@@ -48,37 +48,51 @@ function getphotos(orientation, countphotos){
         })
       }
 
-$(function(){
-  var canvas=document.getElementById("c1")
-  var ctx=canvas.getContext("2d");
+ $(function() {
+
+
+  function unloadph(){
+      var canvas=document.getElementById("c1");
+      var ctx=canvas.getContext("2d");
 
   getphotos('landscape', 2);
 
-  arrphotos[0].onload = function() {
-    ctx.drawImage(arrphotos[0], 0, 0, 400, 300);
-  }
+      arrphotos[0].onload = function() {
+        ctx.drawImage(arrphotos[0], 0, 0, 400, 300);
+        count++;
+      }
 
-  arrphotos[1].onload = function() {
-    ctx.drawImage(arrphotos[1], 0, 300, 400, 300);
-  }
+      arrphotos[1].onload = function() {
+        ctx.drawImage(arrphotos[1], 0, 300, 400, 300);
+        count++;
+      }
 
   getphotos('portrait', 1);
 
-  portret_image.onload = function() {
-    ctx.drawImage(portret_image, 400, 0, 400, 600);
+      portret_image.onload = function() {
+        ctx.drawImage(portret_image, 400, 0, 400, 600);
+        count++;
+      }
   }
+
+  function unloadtx(){
+      if (count == 3){
+        var canvas=document.getElementById("c1");
+        var ctx=canvas.getContext("2d");
+        ctx.font='28px Verdana';
+        ctx.fillStyle='#82216f';
+        ctx.fillText("Вставка текста в Canvas", 20, 100);
+      }
+      else {
+        setTimeout(unloadtx, 1);
+      }
+  }
+
+  unloadph();
+  unloadtx();
 });
-
-
-
-/*
-function drawtx(){
-  var canvas=document.getElementById("c1")
-  var text=canvas.getContext("2d");
-  text.font='28px Verdana';
-  text.fillStyle='#82216f';
-  text.fillText("Вставка текста в Canvas", 20, 100);
+function to_image(){
+    var canvas = document.getElementById("c1");
+    document.getElementById("theimage").src = canvas.toDataURL();
+    Canvas2Image.saveAsPNG(canvas);
 }
-
-drawtx();
-*/
