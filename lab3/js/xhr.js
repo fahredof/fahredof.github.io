@@ -5,7 +5,11 @@ var portret_image = new Image();
 
 for (var i = 0; i < 4; i++) {
   arrphotos[i] = new Image();
+  arrphotos[i].crossOrigin = "anonymous";
 }
+
+portret_image.crossOrigin = "anonymous";
+
 
 $.ajax({
       url: "https://api.forismatic.com/api/1.0/",
@@ -24,13 +28,12 @@ $.ajax({
 
 function getphotos(orientation, countphotos){
   $.ajax({
-        url: "https://api.unsplash.com/photos/random",
+        url: 'https://api.codetabs.com/v1/proxy',
 
         data: {
-        	client_id: '831034bdce6f96b6b8dc797a18f37fca53d793f7e494e4c28076a249f87b3deb',
-          count: countphotos,
-          orientation: orientation,
-          collections: 1160922
+            quest: 'https://api.unsplash.com/photos/random?' +
+            	   'client_id=831034bdce6f96b6b8dc797a18f37fca53d793f7e494e4c28076a249f87b3deb' + '&' +
+                 'count=' + countphotos + '&' + 'orientation=' + orientation + '&' + 'collections=1160922'
         }
       })
         .done(function(data) {
