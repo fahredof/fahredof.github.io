@@ -68,6 +68,27 @@ body{
 	height: 235px !important;
 }
 
+.block{
+	background: rgba(0, 0, 0, 0);
+}
+
+.theme{
+	text-align: center;
+	font-size: 15pt;
+	color: white;
+}
+
+.textdesc{
+	text-align: center;
+	font-size: 9pt;
+	color: white;
+}
+
+.wallofvideo{
+	background: rgba(0, 0, 0, 0);
+	padding-top: 0;
+}
+
 @media (min-width: 992px) and (max-width: 1497px){
 	.wall p{
 		margin-top: 6%;

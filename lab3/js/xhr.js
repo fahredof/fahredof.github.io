@@ -1,6 +1,6 @@
 
 arrphotos = new Array();
-var index = 0, indexph = 0, n = 2, count = 0;;
+var index = 0, indexph = 0, n = 2, count = 0, quote = null;
 var portret_image = new Image();
 
 for (var i = 0; i < 4; i++) {
@@ -9,7 +9,6 @@ for (var i = 0; i < 4; i++) {
 }
 
 portret_image.crossOrigin = "anonymous";
-
 
 $.ajax({
       url: "https://api.forismatic.com/api/1.0/",
@@ -22,7 +21,8 @@ $.ajax({
       }
     })
     .done(function(data) {
-    	document.getElementById('text').innerHTML = data.quoteText ;
+    	document.getElementById('text').innerHTML = data.quoteText;
+      quote = data.quoteText;
 	})
 
 
@@ -32,7 +32,7 @@ function getphotos(orientation, countphotos){
 
         data: {
             quest: 'https://api.unsplash.com/photos/random?' +
-            	   'client_id=831034bdce6f96b6b8dc797a18f37fca53d793f7e494e4c28076a249f87b3deb' + '&' +
+            	   'client_id=a5d8eee6774381f06df7076830489d2c5ed653a9d25494b151ab87729d7b8d2b' + '&' +
                  'count=' + countphotos + '&' + 'orientation=' + orientation + '&' + 'collections=1160922'
         }
       })
@@ -83,17 +83,18 @@ function getphotos(orientation, countphotos){
         var canvas=document.getElementById("c1");
         var ctx=canvas.getContext("2d");
         ctx.font='28px Verdana';
-        ctx.fillStyle='#82216f';
-        ctx.fillText("Вставка текста в Canvas", 20, 100);
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.fillText(quote, 0, 400);
       }
       else {
         setTimeout(unloadtx, 1);
       }
   }
-
   unloadph();
   unloadtx();
 });
+
 function to_image(){
     var canvas = document.getElementById("c1");
     document.getElementById("theimage").src = canvas.toDataURL();
