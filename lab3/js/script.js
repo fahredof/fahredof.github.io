@@ -1,15 +1,14 @@
 genHTML();
 main();
 
-var
-    quote,
-    cnv,
-    arrayoflandscape,
-    imageportret,
-    index,
-    indexph,
-    n,
-    count;
+var quote;
+var cnv;
+var arrayoflandscape;
+var imageportret;
+var index;
+var indexph;
+var n;
+var count;
 
 function main() {
 
