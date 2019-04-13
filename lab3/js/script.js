@@ -61,7 +61,7 @@ function getPhotos(orientation, countphotos){
           url: 'https://api.codetabs.com/v1/proxy',
           data: {
                 quest: 'https://api.unsplash.com/photos/random?' +
-            	  'client_id=2f1f86a09f18ee51a9c109cc75985b408a24d82b6b19a5541f8ba32f25ca4a9b' + '&' +
+            	  'client_id=31e8f5a77e81c97e77adb8bc40bbc5f3fe739751fa335a680bfa2ee7942d05fc' + '&' +
                 'count=' + countphotos + '&' + 'orientation=' + orientation + '&' + 'collections=1160922'
                 }
         })
