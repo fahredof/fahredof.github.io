@@ -1,29 +1,34 @@
+
+if (true) {
+
+}
+
 genHTML();
 main();
 
 var quote;
-var cnv;
+var canvas;
 var arrayoflandscape;
 var imageportret;
 var index;
 var indexph;
-var n;
+var sumphoto;
 var count;
 
 function main() {
 
-  quote            = null,
-  cnv              = document.getElementById('canvas'),
+  quote = null,
+  canvas = document.getElementById('canvas'),
   arrayoflandscape = new Array(),
-  imageportret     = new Image,
-  index            = 0,
-  indexph          = 0,
-  n                = 2,
-  count            = 0;
+  imageportret = new Image,
+  index = 0,
+  indexph = 0,
+  sumphoto = 2,
+  count = 0;
 
-  cnv.width        = 800;
-  cnv.height       = 600;
-  cnv.style.border = '3px solid black';
+  canvas.width = 800;
+  canvas.height = 600;
+  canvas.style.border = '3px solid black';
 
   for (var i = 0; i < 4; i++) {
       arrayoflandscape[i] = new Image();
@@ -35,7 +40,7 @@ function main() {
   getQuote();
   getPhotos();
   unloadph();
-
+  drawtext();
 }
 
 function getQuote(){
@@ -61,17 +66,17 @@ function getPhotos(orientation, countphotos){
           url: 'https://api.codetabs.com/v1/proxy',
           data: {
                 quest: 'https://api.unsplash.com/photos/random?' +
-            	  'client_id=31e8f5a77e81c97e77adb8bc40bbc5f3fe739751fa335a680bfa2ee7942d05fc' + '&' +
+            	  'client_id=df3960483fe3f45e67dee4474128c96c21199e1b74d29191d9af9fc74da9b805' + '&' +
                 'count=' + countphotos + '&' + 'orientation=' + orientation + '&' + 'collections=1160922'
                 }
         })
         .done(function(data) {
               if (orientation == 'landscape'){
-                  while (n != 0){
+                  while (sumphoto != 0){
                         arrayoflandscape[index].src = data[indexph].urls.regular;
                         index++;
                         indexph++;
-                        n--;
+                        sumphoto--;
                   }
               }
               else{
@@ -110,8 +115,6 @@ function unloadph(){
   }
 }
 
-drawtext();
-
 function cutText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
 
   var words = text.split(' ');
@@ -134,8 +137,8 @@ function cutText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
 }
 
 function drawtext(){
-  if (quote != null && count == 3) {
-      var ctx = cnv.getContext('2d'),
+  if (quote != null && count === 3) {
+      var ctx = canvas.getContext('2d'),
 
       maxWidth = 600,
       lineHeight = 40,
@@ -147,9 +150,11 @@ function drawtext(){
       ctx.font = 'bold';
 
       cutText(ctx, quote, marginLeft, marginTop, maxWidth, lineHeight);
+      save.style.visibility = 'visible';
+
   }
   else {
-     console.log('lol');
+     setTimeout(drawtext, 1);
   }
 }
 
@@ -173,12 +178,12 @@ function genHTML(){
   save.style.color =  'white';
   save.style.padding = '10px 25px';
   save.style.fontSize = '16px';
+  save.style.visibility = 'hidden';
   save.onclick =
     function(){
-      var
-          canv= document.getElementById('canvas');
-          dataURL = canv.toDataURL('image/jpg');
-          link = document.createElement('a');
+      var canv= document.getElementById('canvas');
+      var dataURL = canv.toDataURL('image/jpg');
+      var link = document.createElement('a');
 
       link.href = dataURL;
       link.download = 'quote.jpg';
