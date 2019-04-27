@@ -1,8 +1,3 @@
-
-if (true) {
-
-}
-
 genHTML();
 main();
 
