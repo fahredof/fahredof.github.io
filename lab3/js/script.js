@@ -35,7 +35,7 @@ function main() {
   getQuote();
   getPhotos();
   unloadph();
-  drawtext();
+
 }
 
 function getQuote(){
@@ -110,6 +110,8 @@ function unloadph(){
   }
 }
 
+drawtext();
+
 function cutText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
 
   var words = text.split(' ');
@@ -147,7 +149,7 @@ function drawtext(){
       cutText(ctx, quote, marginLeft, marginTop, maxWidth, lineHeight);
   }
   else {
-     setTimeout(drawtext, 1);
+     console.log('lol');
   }
 }
 
