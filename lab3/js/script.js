@@ -8,8 +8,8 @@ main();
 
 var quote;
 var canvas;
-var arrayoflandscape;
-var imageportret;
+var arrayOfLandScape;
+var imagePortret;
 var index;
 var indexph;
 var sumphoto;
@@ -19,8 +19,8 @@ function main() {
 
   quote = null,
   canvas = document.getElementById('canvas'),
-  arrayoflandscape = new Array(),
-  imageportret = new Image,
+  arrayOfLandScape = new Array(),
+  imagePortret = new Image,
   index = 0,
   indexph = 0,
   sumphoto = 2,
@@ -31,11 +31,11 @@ function main() {
   canvas.style.border = '3px solid black';
 
   for (var i = 0; i < 4; i++) {
-      arrayoflandscape[i] = new Image();
-      arrayoflandscape[i].crossOrigin = 'anonymous';
+      arrayOfLandScape[i] = new Image();
+      arrayOfLandScape[i].crossOrigin = 'anonymous';
   }
 
-  imageportret.crossOrigin = 'anonymous';
+  imagePortret.crossOrigin = 'anonymous';
 
   getQuote();
   getPhotos();
@@ -73,14 +73,14 @@ function getPhotos(orientation, countphotos){
         .done(function(data) {
               if (orientation == 'landscape'){
                   while (sumphoto != 0){
-                        arrayoflandscape[index].src = data[indexph].urls.regular;
+                        arrayOfLandScape[index].src = data[indexph].urls.regular;
                         index++;
                         indexph++;
                         sumphoto--;
                   }
               }
               else{
-                  imageportret.src = data[0].urls.regular;
+                  imagePortret.src = data[0].urls.regular;
               }
         })
 }
@@ -91,15 +91,15 @@ function unloadph(){
 
   getPhotos('landscape', 2);
 
-  arrayoflandscape[0].onload = function() {
-    ctx.drawImage(arrayoflandscape[0], 0, 0, 400, 300);
+  arrayOfLandScape[0].onload = function() {
+    ctx.drawImage(arrayOfLandScape[0], 0, 0, 400, 300);
     ctx.fillStyle = 'rgba(0,0,0,0.35)';
     ctx.fillRect(0,0,400,300);
     count++;
   }
 
-  arrayoflandscape[1].onload = function() {
-    ctx.drawImage(arrayoflandscape[1], 0, 300, 400, 300);
+  arrayOfLandScape[1].onload = function() {
+    ctx.drawImage(arrayOfLandScape[1], 0, 300, 400, 300);
     ctx.fillStyle = 'rgba(0,0,0,0.35)';
     ctx.fillRect(0, 300, 400, 300);
     count++;
@@ -107,8 +107,8 @@ function unloadph(){
 
   getPhotos('portrait', 1);
 
-  imageportret.onload = function() {
-    ctx.drawImage(imageportret, 400, 0, 400, 600);
+  imagePortret.onload = function() {
+    ctx.drawImage(imagePortret, 400, 0, 400, 600);
     ctx.fillStyle = 'rgba(0,0,0,0.35)';
     ctx.fillRect(400, 0, 400, 600);
     count++;
